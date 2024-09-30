@@ -59,10 +59,23 @@ WHERE
 
 
 
+-- 3. Create a table showing cumulative purchase by a particular customer, broken down by product category.
+SELECT 
+    c.customer_id, 
+    c.name AS customer_name,
+    p.category as product_catagory, 
+    SUM(o.total_price) AS cumulative_purchase_per_catagory
+FROM 
+    customers c
+JOIN 
+    orders o ON c.customer_id = o.customer_id
+JOIN 
+    products p ON o.product_id = p.product_id
+GROUP BY 
+    c.customer_id, c.name, p.category
+ORDER BY 
+    customer_id, p.category;
 
 
 
-
-
-
-
+-- 4. Retrieve the list of top 5 selling products. Further bifurcate the sales by product variants.
