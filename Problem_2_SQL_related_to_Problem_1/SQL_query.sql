@@ -95,20 +95,23 @@ limit 5 ;
 
 -- Top 5 by Variant
 
-
-
-
 with cte as (
 	SELECT 
 		p.product_id, 
-		p.product_name, 
-		SUM(o.quantity) over (partition by p.product_name) AS total_sold_by_product,
-		SUM(o.quantity) over (partition by p.product_name, p.variant_name) AS total_sold_by_varient,
-		p.category,
-		p.variant_name
+		p.product_name,
+		SUM(o.quantity) AS total_sold_by_varient,
+		min(p.category) as category,
+		min(p.variant_name) as variant_name
 	FROM 
 		products p
 	JOIN 
-		orders o ON p.product_id = o.product_id )
+		orders o ON p.product_id = o.product_id 
+	where p.variant_name != ""
+    group by p.product_id, p.product_name ),
+var_bifurcation as (select *, 
+dense_rank() over (partition by product_name order by total_sold_by_varient desc) as dr
+from cte )
 
-select * from cte ;
+select *
+from var_bifurcation 
+where dr < 6 ;

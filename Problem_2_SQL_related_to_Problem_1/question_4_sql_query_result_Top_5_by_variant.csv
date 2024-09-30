@@ -1,0 +1,10 @@
+product_id,product_name,total_sold_by_varient,category,variant_name,dr
+13,Headphones,48,Electronics,"Green Headphones",1
+12,Headphones,24,Electronics,"Black Headphones",2
+15,ipad,38,Electronics,"Black ipad",1
+14,ipad,31,Electronics,"Green ipad",2
+9,Laptop,31,Electronics,"Green Laptop",1
+10,Laptop,26,Electronics,"White Laptop",2
+1,T-shirt,45,Clothing,"Red T-shirt",1
+2,T-shirt,42,Clothing,"Black T-shirt",2
+3,T-shirt,41,Clothing,"White T-shirt",3
