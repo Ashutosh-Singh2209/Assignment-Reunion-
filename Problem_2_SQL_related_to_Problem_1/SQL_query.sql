@@ -78,3 +78,37 @@ ORDER BY
 
 
 -- 4. Retrieve the list of top 5 selling products. Further bifurcate the sales by product variants.
+-- Top 5 by product
+
+SELECT 
+	p.product_id, 
+	p.product_name, 
+	SUM(o.quantity) AS total_sold_by_product,
+	min(p.category) as catagory
+FROM 
+	products p
+JOIN 
+	orders o ON p.product_id = o.product_id 
+group by p.product_id, p.product_name
+order by total_sold_by_product desc
+limit 5 ;
+
+-- Top 5 by Variant
+
+
+
+
+with cte as (
+	SELECT 
+		p.product_id, 
+		p.product_name, 
+		SUM(o.quantity) over (partition by p.product_name) AS total_sold_by_product,
+		SUM(o.quantity) over (partition by p.product_name, p.variant_name) AS total_sold_by_varient,
+		p.category,
+		p.variant_name
+	FROM 
+		products p
+	JOIN 
+		orders o ON p.product_id = o.product_id )
+
+select * from cte ;
