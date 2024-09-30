@@ -77,5 +77,4 @@ ORDER BY
     customer_id, p.category;
 
 
-
 -- 4. Retrieve the list of top 5 selling products. Further bifurcate the sales by product variants.

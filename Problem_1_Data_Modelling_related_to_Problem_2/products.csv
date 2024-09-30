@@ -1,14 +1,16 @@
-product_id,category,name
-1,Clothing,Green T-shirt
-2,Clothing,Jeans
-3,Clothing,Blue Jacket
-4,Groceries,Rice
-5,Groceries,Pasta
-6,Groceries,Olive Oil
-7,Electronics,Green Laptop
-8,Electronics,White Smartphone
-9,Electronics,Black Smartphone
-10,Electronics,Red Smartphone
-11,Electronics,Headphones
-12,Electronics,Blue ipad
-13,Electronics,Green ipad
+product_id,category,variant_name,product_name
+1,Clothing,Red T-shirt,T-shirt
+2,Clothing,Black T-shirt,T-shirt
+3,Clothing,White T-shirt,T-shirt
+4,Clothing,,Jeans
+5,Clothing,,Jacket
+6,Groceries,,Rice
+7,Groceries,,Pasta
+8,Groceries,,Olive Oil
+9,Electronics,Green Laptop,Laptop
+10,Electronics,White Laptop,Laptop
+11,Electronics,,Smartphone
+12,Electronics,Black Headphones,Headphones
+13,Electronics,Green Headphones,Headphones
+14,Electronics,Green ipad,ipad
+15,Electronics,Black ipad,ipad
